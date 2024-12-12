@@ -15,6 +15,7 @@ x-api-key: 92479229
 ### Login
 POST {{urlDev}}/v1/api/shop/signin
 Content-Type: application/json
+x-api-key: e42e73eba28523492ce0c53c327dc8ba76a81fb4813314a52ea0586bd51f11ab298ba6d257dd0914247817b23b2bb53fc0dde0ec2007a2d9ff2725f1db9f0114
 
 {
   "email": "nghia@mail.com",
