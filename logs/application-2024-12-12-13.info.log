@@ -1,0 +1,65 @@
+2024-12-12T13:31:28 [info] [SERVER] - ctx:no - id:unknown - "Redis client connected" - {}
+2024-12-12T13:31:28 [info] [SERVER] - ctx:no - id:unknown - "PONG" - {}
+2024-12-12T13:35:32 [info] [SERVER] - ctx:no - id:unknown - "Redis client connected" - {}
+2024-12-12T13:35:32 [info] [SERVER] - ctx:no - id:unknown - "PONG" - {}
+2024-12-12T13:35:50 [info] [SERVER] - ctx:no - id:unknown - "Redis client connected" - {}
+2024-12-12T13:35:50 [info] [SERVER] - ctx:no - id:unknown - "PONG" - {}
+2024-12-12T13:36:52 [info] [SERVER] - ctx:no - id:unknown - "Redis client connected" - {}
+2024-12-12T13:36:52 [info] [SERVER] - ctx:no - id:unknown - "PONG" - {}
+2024-12-12T13:37:05 [info] [SERVER] - ctx:no - id:unknown - "Redis client connected" - {}
+2024-12-12T13:37:06 [info] [SERVER] - ctx:no - id:unknown - "PONG" - {}
+2024-12-12T13:37:46 [info] [SERVER] - ctx:no - id:unknown - "AccessService::" - {}
+2024-12-12T13:39:07 [info] [SERVER] - ctx:no - id:unknown - "Redis client connected" - {}
+2024-12-12T13:39:07 [info] [SERVER] - ctx:no - id:unknown - "PONG" - {}
+2024-12-12T13:40:14 [info] [SERVER] - ctx:no - id:unknown - "Redis client connected" - {}
+2024-12-12T13:40:14 [info] [SERVER] - ctx:no - id:unknown - "PONG" - {}
+2024-12-12T13:40:17 [info] [SERVER] - ctx:no - id:unknown - "AccessService::" - {}
+2024-12-12T13:40:27 [info] [SERVER] - ctx:no - id:unknown - "Operation `shops.findOne()` buffering timed out after 10000ms" - {}
+2024-12-12T13:40:57 [info] [SERVER] - ctx:no - id:unknown - "Redis client connected" - {}
+2024-12-12T13:40:57 [info] [SERVER] - ctx:no - id:unknown - "PONG" - {}
+2024-12-12T13:41:09 [info] [SERVER] - ctx:no - id:unknown - "AccessService::" - {}
+2024-12-12T13:41:19 [info] [SERVER] - ctx:no - id:unknown - "Operation `shops.findOne()` buffering timed out after 10000ms" - {}
+2024-12-12T13:42:36 [info] [SERVER] - ctx:no - id:unknown - "Redis client connected" - {}
+2024-12-12T13:42:36 [info] [SERVER] - ctx:no - id:unknown - "PONG" - {}
+2024-12-12T13:42:48 [info] [SERVER] - ctx:no - id:unknown - "Redis client connected" - {}
+2024-12-12T13:42:48 [info] [SERVER] - ctx:no - id:unknown - "PONG" - {}
+2024-12-12T13:47:39 [info] [SERVER] - ctx:no - id:unknown - "Redis client connected" - {}
+2024-12-12T13:47:39 [info] [SERVER] - ctx:no - id:unknown - "PONG" - {}
+2024-12-12T13:47:49 [info] [SERVER] - ctx:no - id:unknown - "AccessService::" - {}
+2024-12-12T13:47:59 [info] [SERVER] - ctx:no - id:unknown - "Operation `shops.findOne()` buffering timed out after 10000ms" - {}
+2024-12-12T13:48:31 [info] [SERVER] - ctx:no - id:unknown - "AccessService::" - {}
+2024-12-12T13:48:41 [info] [SERVER] - ctx:no - id:unknown - "Operation `shops.findOne()` buffering timed out after 10000ms" - {}
+2024-12-12T13:49:04 [info] [SERVER] - ctx:no - id:unknown - "Redis client connected" - {}
+2024-12-12T13:49:05 [info] [SERVER] - ctx:no - id:unknown - "PONG" - {}
+2024-12-12T13:49:17 [info] [SERVER] - ctx:no - id:unknown - "Redis client connected" - {}
+2024-12-12T13:49:18 [info] [SERVER] - ctx:no - id:unknown - "PONG" - {}
+2024-12-12T13:49:47 [info] [SERVER] - ctx:no - id:unknown - "AccessService::" - {}
+2024-12-12T13:49:47 [info] [SERVER] - ctx:no - id:unknown - "Command find requires authentication" - {}
+2024-12-12T13:49:52 [info] [SERVER] - ctx:no - id:unknown - "AccessService::" - {}
+2024-12-12T13:49:52 [info] [SERVER] - ctx:no - id:unknown - "Command find requires authentication" - {}
+2024-12-12T13:50:34 [info] [SERVER] - ctx:no - id:unknown - "Redis client connected" - {}
+2024-12-12T13:50:34 [info] [SERVER] - ctx:no - id:unknown - "PONG" - {}
+2024-12-12T13:50:47 [info] [SERVER] - ctx:no - id:unknown - "AccessService::" - {}
+2024-12-12T13:50:57 [info] [SERVER] - ctx:no - id:unknown - "Operation `shops.findOne()` buffering timed out after 10000ms" - {}
+2024-12-12T13:52:23 [info] [SERVER] - ctx:no - id:unknown - "Redis client connected" - {}
+2024-12-12T13:52:23 [info] [SERVER] - ctx:no - id:unknown - "PONG" - {}
+2024-12-12T13:52:33 [info] [SERVER] - ctx:no - id:unknown - "AccessService::" - {}
+2024-12-12T13:52:34 [info] [SERVER] - ctx:no - id:unknown - "AccessService::" - {}
+2024-12-12T13:52:34 [info] [SERVER] - ctx:no - id:unknown - "null" - {}
+2024-12-12T13:54:36 [info] [SERVER] - ctx:no - id:unknown - "Redis client connected" - {}
+2024-12-12T13:54:37 [info] [SERVER] - ctx:no - id:unknown - "PONG" - {}
+2024-12-12T13:54:52 [info] [SERVER] - ctx:no - id:unknown - "Redis client connected" - {}
+2024-12-12T13:54:53 [info] [SERVER] - ctx:no - id:unknown - "PONG" - {}
+2024-12-12T13:55:11 [info] [SERVER] - ctx:no - id:unknown - "Redis client connected" - {}
+2024-12-12T13:55:11 [info] [SERVER] - ctx:no - id:unknown - "PONG" - {}
+2024-12-12T13:56:12 [info] [SERVER] - ctx:no - id:unknown - "Redis client connected" - {}
+2024-12-12T13:56:12 [info] [SERVER] - ctx:no - id:unknown - "PONG" - {}
+2024-12-12T13:56:33 [info] [SERVER] - ctx:no - id:unknown - "Redis client connected" - {}
+2024-12-12T13:56:34 [info] [SERVER] - ctx:no - id:unknown - "PONG" - {}
+2024-12-12T13:56:37 [info] [SERVER] - ctx:no - id:unknown - "Redis client connected" - {}
+2024-12-12T13:56:37 [info] [SERVER] - ctx:no - id:unknown - "PONG" - {}
+2024-12-12T13:57:41 [info] [SERVER] - ctx:no - id:unknown - "Redis client connected" - {}
+2024-12-12T13:57:41 [info] [SERVER] - ctx:no - id:unknown - "PONG" - {}
+2024-12-12T13:57:53 [info] [SERVER] - ctx:no - id:unknown - "AccessService::signin::{"email":"nghia@mail.com","password":"123456"}" - {}
+2024-12-12T13:57:53 [info] [SERVER] - ctx:no - id:unknown - "675a8831f6d108fb04e6b949" - {}
+2024-12-12T13:57:53 [info] [SERVER] - ctx:no - id:unknown - "null" - {}

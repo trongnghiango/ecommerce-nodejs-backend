@@ -1,0 +1,4 @@
+node_modules/
+temps/
+.env
+.env.local

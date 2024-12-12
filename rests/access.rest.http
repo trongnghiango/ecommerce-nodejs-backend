@@ -1,0 +1,22 @@
+@urlDev=http://localhost:3051
+
+### checkStatus
+
+POST {{urlDev}}/v1/api/shop/signup
+Content-Type: application/json
+x-api-key: 92479229
+
+{
+  "email": "nghia@mail.com",
+  "name": "nghiango",
+  "password": "123456"
+}
+
+### Login
+POST {{urlDev}}/v1/api/shop/signin
+Content-Type: application/json
+
+{
+  "email": "nghia@mail.com",
+  "password": "123456"
+}
