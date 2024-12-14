@@ -1,3 +1,4 @@
+const ApiError = require('../core/api-error');
 const { findApiKeyById } = require('../services/apikey.service');
 const { logger } = require('../utils/logger.util');
 
@@ -10,17 +11,18 @@ const apiKey = async (req, res, next) => {
   try {
     // 1. check x-api-key ton tai khi user req.
     const key = req.headers[HEADER.API_KEY]?.toString();
-    if (!key)
-      res.status(403).json({
-        message: 'No',
-      });
+    if (!key) {
+      // res.status(403).json({
+      //   message: 'No',
+      // });
+      throw new ApiError(403, 'Notfound x-api-key');
+    }
 
     // 2. check xem  this api-key from db
     const objKey = await findApiKeyById(key);
-    if (!objKey)
-      res.status(403).json({
-        message: 'No...',
-      });
+    if (!objKey) {
+      throw new ApiError(403, 'Notfound obj API key');
+    }
 
     logger.info(`middleware::apiKey:: ${objKey}`);
 
@@ -28,11 +30,10 @@ const apiKey = async (req, res, next) => {
     req.objKey = objKey;
     next();
   } catch (error) {
-    logger.error(error.message);
-    // next();
-    res.status(403).json({
-      message: 'Error...',
+    logger.error(error.message, {
+      context: 'auth::apiKey',
     });
+    next(error);
   }
 };
 
@@ -49,9 +50,7 @@ const checkPermission = (permission) => {
 
     const validPermission = req.objKey.permissions.includes(permission);
     if (!validPermission) {
-      res.status(403).json({
-        message: 'Permission Deny!',
-      });
+      throw new ApiError(403, 'Permission Deny!!!');
     }
 
     next();

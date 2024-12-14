@@ -1,23 +1,28 @@
 @urlDev=http://localhost:3051
 
+@accessToken=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzVhODgzMWY2ZDEwOGZiMDRlNmI5NDkiLCJpYXQiOjE3MzQwMTcwMjQsImV4cCI6MTczNDAxNzkyNH0.ZYEIRH8l3wlM4v39NPXi_MlG38c3dkZnSJxz-LLOmiTKT4kgknv9idb1azWRvQvM0TZsN_gHWqXs58qov_7VC8SCb8cP-UOCuNp79pJHttmGXwS2zEnd03idQZQRKFkugc932E3YI-APXDGHQ4FFejppbnE8pAh5kmb6ulJAQO24G8QagvUz9qa23m8Eod8-nSS-VBkUunNGZoUw_NPGMuC1y1pElHXX7uHiDZkFCPDsXTncI1hgJ9gijnS1_mfrk4v5KGgOQoUi5_syaxnI1Qb0KxBuzLdNp4nv-taLSiMXJH-7o7siAKwl9cFM1P7ZZmvbpp1H0TlST5Q1blqM0A
 ### checkStatus
 
 POST {{urlDev}}/v1/api/shop/signup
 Content-Type: application/json
-x-api-key: 92479229
+x-api-key: e42e73eba28523492ce0c53c327dc8ba76a81fb4813314a52ea0586bd51f11ab298ba6d257dd0914247817b23b2bb53fc0dde0ec2007a2d9ff2725f1db9f011
 
 {
-  "email": "nghia@mail.com",
-  "name": "nghiango",
+  "email": "nghia111@mail.com",
+  "name": "nghiango111",
   "password": "123456"
 }
 
 ### Login
 POST {{urlDev}}/v1/api/shop/signin
 Content-Type: application/json
-x-api-key: e42e73eba28523492ce0c53c327dc8ba76a81fb4813314a52ea0586bd51f11ab298ba6d257dd0914247817b23b2bb53fc0dde0ec2007a2d9ff2725f1db9f0114
+x-api-key: e42e73eba28523492ce0c53c327dc8ba76a81fb4813314a52ea0586bd51f11ab298ba6d257dd0914247817b23b2bb53fc0dde0ec2007a2d9ff2725f1db9f011
 
 {
   "email": "nghia@mail.com",
   "password": "123456"
 }
+
+### profile
+GET {{urlDev}}/v1/api/
+Content-Type: application/json
