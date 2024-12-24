@@ -1,4 +1,5 @@
 const ApiError = require('../core/api-error');
+const { CreatedResponse } = require('../core/success.response');
 const AccessService = require('../services/access.service');
 const { logger } = require('../utils/logger.util');
 
@@ -17,11 +18,16 @@ class AccessController {
     logger.info(err);
 
     if (err) throw ApiError.badRequest(err.message);
-    return res.status(201).json({
-      code: 'Created',
-      msg: 'oo',
-      result,
-    });
+
+    return new CreatedResponse({
+      message: 'Registed OK!!',
+      metadata: result,
+    }).send(res);
+    // return res.status(201).json({
+    //   code: 'Created',
+    //   msg: 'oo',
+    //   result,
+    // });
   };
 
   /**

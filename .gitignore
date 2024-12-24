@@ -1,4 +1,6 @@
 node_modules/
 temps/
+logs/
 .env
 .env.local
+.pnp.*
