@@ -3,3 +3,4 @@ temps/
 logs/
 .env
 .env.local
+.pnp.*
