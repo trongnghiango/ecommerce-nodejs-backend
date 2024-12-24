@@ -2,6 +2,7 @@
   "name": "websevice-mvc-express-nodejs",
   "version": "1.0.0",
   "description": "structure api mvc express nodejs",
+  "packageManager": "yarn@4.5.3",
   "main": "index.js",
   "directories": {
     "doc": "docs"

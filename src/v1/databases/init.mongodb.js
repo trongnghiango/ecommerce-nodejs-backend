@@ -15,8 +15,8 @@ mongoose
     socketTimeoutMS: 45000,
     retryWrites: true, // Cho phép tự động thử lại các ghi khi thất bại.
   })
-  .then((_) => logger.info('Connected mongoose success!...'))
-  .catch((err) => logger.error(`Error: connect:::`, err));
+  .then((_) => logger.info('Connected mongoose success!...', { label: 'MONGO' }))
+  .catch((err) => logger.error(`Error: connect:::${err.message}`, { label: 'MONGO' }));
 
 // all executed methods log output to console
 mongoose.set('debug', true);
