@@ -1,5 +1,5 @@
 const ApiError = require('../core/api-error');
-const { CreatedResponse } = require('../core/success.response');
+const { CreatedResponse, OKResponse } = require('../core/success.response');
 const AccessService = require('../services/access.service');
 const { logger } = require('../utils/logger.util');
 
@@ -50,6 +50,13 @@ class AccessController {
       result,
     });
   };
+
+  signout = async (req, res, _next) => {
+    return new OKResponse({
+      message: 'success',
+      metadata: await AccessService.logout(req.keyStore)
+    }).send(res)
+  }
 }
 
 module.exports = new AccessController();
