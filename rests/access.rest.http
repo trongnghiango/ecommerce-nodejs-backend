@@ -40,4 +40,16 @@ Authorization: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzVhODgzMWY2
 
 
 ###
-GET http://localhost:8000
+GET http://localhost:8000/greet/ok con do
+
+
+###
+POST http://localhost:8000/api/heroes
+Content-Type: application/json
+
+{
+
+    "name": "Ciquan",
+    "secret_name": "nemay",
+    "age": 18
+}

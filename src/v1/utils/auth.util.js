@@ -1,5 +1,5 @@
 const crypto = require('node:crypto');
-const ApiError = require('../core/api-error');
+const { ApiError } = require('../core/api-error');
 
 
 const authorizeRoles = (...allowedRoles) => {

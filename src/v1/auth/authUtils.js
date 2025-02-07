@@ -1,6 +1,6 @@
 const JWT = require('jsonwebtoken');
 const { catchAsync } = require('../utils/helper.util');
-const ApiError = require('../core/api-error');
+const { ApiError } = require('../core/api-error');
 const { getKeyToken } = require('../services/keytoken.service');
 const { logger } = require('../utils/logger.util');
 

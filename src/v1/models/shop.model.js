@@ -3,6 +3,16 @@ const { Schema, model } = require('mongoose');
 const DOCUMENT_NAME = 'Shop';
 const COLLECTION_NAME = 'shops';
 
+/**
+ * 
+    name:
+    email:
+    password:
+    status:
+    verify:
+    roles:
+ */
+
 const shopSchema = new Schema(
   {
     name: {

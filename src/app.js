@@ -4,12 +4,12 @@ const app = express();
 const helmet = require('helmet');
 const morgan = require('morgan');
 const compression = require('compression');
-const ApiError = require('./v1/core/api-error');
+const { ApiError, NotFoundError } = require('./v1/core/api-error');
 const { errorConverter, errorHandler } = require('./v1/middlewares/error');
 
 // init dbs
 require('./v1/databases/init.mongodb');
-require('./v1/databases/init.redis');
+// require('./v1/databases/init.redis');
 
 // user middleware
 app.use(helmet());
@@ -30,29 +30,17 @@ app.use(require('./v1/routes/index.router'));
 
 // Error Handling Middleware called
 app.use((req, res, next) => {
-  throw ApiError.notFound();
+  // throw ApiError.notFound();
+  throw new NotFoundError()
 });
+
 
 // convert error to ApiError, if needed
 app.use(errorConverter);
 
+
 // handle error
 app.use(errorHandler);
 
-// app.use((req, res, next) => {
-//   const error = new Error('Not found');
-//   error.status = 404;
-//   next(error);
-// });
-
-// // error handler middleware
-// app.use((error, req, res, next) => {
-//   res.status(error.status || 500).send({
-//     error: {
-//       status: error.status || 500,
-//       message: error.message || 'Internal Server Error',
-//     },
-//   });
-// });
 
 module.exports = app;

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const { StatusCodes } = require('http-status-codes');
-const ApiError = require('../core/api-error');
+const { ApiError } = require('../core/api-error');
 const { logger } = require('../utils/logger.util');
 
 const errorConverter = (err, req, res, next) => {
@@ -11,15 +11,17 @@ const errorConverter = (err, req, res, next) => {
         ? StatusCodes.BAD_REQUEST
         : StatusCodes.INTERNAL_SERVER_ERROR;
     const message = error.message || StatusCodes[statusCode];
-    error = new ApiError(statusCode, message, false, err.stack);
+    error = new ApiError( message, statusCode, false, err.stack);
     logger.info(err.stack, { label: 'errorConverter' });
   }
   next(error);
 };
 
+const errNotfound = () => {}
+
 // eslint-disable-next-line no-unused-vars
 const errorHandler = (err, req, res, next) => {
-  // console.warn({ err, req, res, next });
+  // console.warn(err.statusCode);
   logger.error(err.message, { context: 'errorHandler' });
   let { statusCode, message } = err;
   if (process.env.NODE_ENV === 'production' && !err.isOperational) {

@@ -1,4 +1,4 @@
-const ApiError = require('../core/api-error');
+const { ApiError } = require('../core/api-error');
 const { CreatedResponse, OKResponse } = require('../core/success.response');
 const AccessService = require('../services/access.service');
 const { logger } = require('../utils/logger.util');

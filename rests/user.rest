@@ -1,0 +1,7 @@
+@urlDev=http://localhost:3051
+
+@accessToken=
+
+### checkStatus
+
+GET {{urlDev}}/test
