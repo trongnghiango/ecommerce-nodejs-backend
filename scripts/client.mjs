@@ -10,6 +10,7 @@ async function getFileSizeAndChunkSize(filename = 'largefile.txt') {
   if (!response.ok) {
     throw new Error(`Không thể lấy kích thước file: ${response.statusText}`);
   }
+  //
   const data = await response.json();
   return { totalChunks: data.totalChunks, chunkSize: data.chunkSize };
 }

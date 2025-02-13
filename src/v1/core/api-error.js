@@ -59,6 +59,12 @@ class ForbiddenError extends ApiError {
   }
 }
 
+class UnAuthorizedError extends ApiError {
+constructor(message = ReasonPhrases.FORBIDDEN, statusCode = StatusCodes.FORBIDDEN ) {
+    super(message, statusCode)
+  }  
+}
+
 module.exports = {
   ApiError,
   NotFoundError, 

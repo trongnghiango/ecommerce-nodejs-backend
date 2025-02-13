@@ -1,15 +1,22 @@
 const express = require('express');
 
-const app = express();
+const setupSwagger = require('./swagger')
+
 const helmet = require('helmet');
 const morgan = require('morgan');
 const compression = require('compression');
 const { ApiError, NotFoundError } = require('./v1/core/api-error');
 const { errorConverter, errorHandler } = require('./v1/middlewares/error');
 
+
+const app = express();
+
 // init dbs
 require('./v1/databases/init.mongodb');
 // require('./v1/databases/init.redis');
+
+// Thiết lập Swagger
+setupSwagger(app);
 
 // user middleware
 app.use(helmet());
@@ -25,7 +32,8 @@ app.use(
   })
 );
 
-// router
+
+// router VERSION 1
 app.use(require('./v1/routes/index.router'));
 
 // Error Handling Middleware called

@@ -4,3 +4,4 @@ logs/
 .env
 .env.local
 .pnp.*
+.yarn/install-state.gz
