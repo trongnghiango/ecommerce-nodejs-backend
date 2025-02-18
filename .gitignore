@@ -1,7 +1,9 @@
-node_modules/
-temps/
-logs/
+/node_modules/
+/temps/
+/logs/
 .env
 .env.local
 .pnp.*
-.yarn/install-state.gz
+/.yarn/
+
+/.idea/
