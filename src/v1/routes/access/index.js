@@ -28,21 +28,7 @@ const router = express.Router();
  *       type: string
  */
 
-/**
- * @swagger
- * /profile:
- *   get:
- *     tags: [Access]
- *     summary: Get an example
- *     responses:
- *       200:
- *         description: A successful response
- */
-router.get('/profile', (req, res) => {
-  res.json({
-    msg: 'ciquan'
-  })
-})
+
 //
 router.use(apiKey);
 

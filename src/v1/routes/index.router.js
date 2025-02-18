@@ -4,7 +4,10 @@ const logger = require('@/v1/utils/logger.util');
 const router = express.Router();
 
 // access
-router.use('/v1/api', require('./access'));
+router.use('/v1/api/access', require('./access'));
+
+// profile
+router.use('/v1/api/profile', require('./profile'));
 
 /**
  * @swagger
