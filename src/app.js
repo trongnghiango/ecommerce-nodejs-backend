@@ -1,10 +1,10 @@
 const express = require('express');
 
-const setupSwagger = require('./swagger')
 
 const helmet = require('helmet');
 const morgan = require('morgan');
 const compression = require('compression');
+const setupSwagger = require('./swagger');
 const { ApiError, NotFoundError } = require('./v1/core/api-error');
 const { errorConverter, errorHandler } = require('./v1/middlewares/error');
 

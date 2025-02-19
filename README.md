@@ -110,3 +110,8 @@ extends: ['airbnb-base', 'plugin:prettier/recommended'],
   "trailingComma": "es5"
 }
 ```
+
+### RUN SERVER
+```shell
+yarn run dev
+```

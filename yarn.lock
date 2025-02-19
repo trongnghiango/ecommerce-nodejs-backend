@@ -5643,6 +5643,7 @@ __metadata:
     swagger-ui-express: "npm:^5.0.1"
     winston: "npm:^3.7.2"
     winston-daily-rotate-file: "npm:^5.0.0"
+    xxx: ./libs/xxx
   languageName: unknown
   linkType: soft
 
@@ -5833,6 +5834,13 @@ __metadata:
   version: 1.0.2
   resolution: "wrappy@npm:1.0.2"
   checksum: 10c0/56fece1a4018c6a6c8e28fbc88c87e0fbf4ea8fd64fc6c63b18f4acc4bd13e0ad2515189786dd2c30d3eec9663d70f4ecf699330002f8ccb547e4a18231fc9f0
+  languageName: node
+  linkType: hard
+
+"xxx@file:./libs/xxx::locator=websevice-mvc-express-nodejs%40workspace%3A.":
+  version: 1.0.0
+  resolution: "xxx@file:./libs/xxx#./libs/xxx::hash=6f40bd&locator=websevice-mvc-express-nodejs%40workspace%3A."
+  checksum: 10c0/6cfbba4b0bb7d5c4a4ca0aa50c051b65a9f5f501d0d6a37f9a725dd9b06665cf06d21535b90a3b4d22e5d05f550b47bae34320a6521687629570fb4e68e9f1f2
   languageName: node
   linkType: hard
 

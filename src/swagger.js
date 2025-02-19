@@ -15,9 +15,7 @@ const swaggerOptions = {
       },
     ],
   },
-  apis: [
-    './src/v1/routes/**/*.js'
-  ], // Đường dẫn tới các tệp chứa tài liệu API
+  apis: ['./src/v1/routes/**/*.js'], // Đường dẫn tới các tệp chứa tài liệu API
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);

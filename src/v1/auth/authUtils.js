@@ -52,9 +52,9 @@ const decodeToken = (token, publicKey) => {
 const authentication = catchAsync(async (req, res, next) => { /* dung ham bao catchAsync de co the throw Error */
   /**
    * Flow:
-   * 1. check userId 
+   * 1. check userId
    * 2. get accessToken
-   * 3. verifyToken 
+   * 3. verifyToken
    * 4. check user existed in dbs
    * 5. check keyStore with this userId
    * 6.  Ok all => return next()
@@ -65,7 +65,7 @@ const authentication = catchAsync(async (req, res, next) => { /* dung ham bao ca
   if (!userId) throw ApiError.unAuthorized('Invalid request!')
 
   // call srv -> 
-  const [er, keyStore] =  await getKeyToken({userId})
+  const [er, keyStore] = await getKeyToken({ userId });
   if (er || !keyStore) throw ApiError.notFound('Not found keyStore!')
     // logger.info(keyStore?.publicKey)
 

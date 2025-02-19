@@ -1,3 +1,4 @@
+const { getInfo } = require('xxx');
 const { ApiError } = require('../core/api-error');
 const { CreatedResponse, OKResponse } = require('../core/success.response');
 const AccessService = require('../services/access.service');
@@ -40,6 +41,8 @@ class AccessController {
   // eslint-disable-next-line class-methods-use-this
   signin = async (req, res, next) => {
     // throw ApiError.badRequest('ciquan');
+    const info = getInfo();
+    console.info({ info });
     const [err, result] = await AccessService.signin(req.body);
     logger.info(err);
 
