@@ -24,7 +24,7 @@ const accountSchema = new Schema(
       type: String,
       required: true,
     },
-     role: { type: Schema.Types.ObjectId, ref: "Role", required: true }, // Tham chiếu đến Role
+    role: { type: Schema.Types.ObjectId, ref: "Role", required: true }, // Tham chiếu đến Role
     userId: {
       type: Schema.Types.ObjectId,
       required: true,
