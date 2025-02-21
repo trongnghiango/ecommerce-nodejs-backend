@@ -7,8 +7,8 @@ const { logger } = require('../utils/logger.util');
 const HEADER = {
   API_KEY: 'x-api-key',
   CLIENT_ID: 'x-client-id',
-  AUTHORIZATION: 'authorization'
-}
+  AUTHORIZATION: 'authorization',
+};
 
 const createTokenPair = (payload, privateKey) => {
   return new Promise((resolve, _reject) => {
@@ -49,7 +49,8 @@ const decodeToken = (token, publicKey) => {
   });
 };
 
-const authentication = catchAsync(async (req, res, next) => { /* dung ham bao catchAsync de co the throw Error */
+const authentication = catchAsync(async (req, res, next) => {
+  /* dung ham bao catchAsync de co the throw Error */
   /**
    * Flow:
    * 1. check userId
@@ -62,26 +63,25 @@ const authentication = catchAsync(async (req, res, next) => { /* dung ham bao ca
 
   // 1.
   const userId = req.headers[HEADER.CLIENT_ID];
-  if (!userId) throw ApiError.unAuthorized('Invalid request!')
+  if (!userId) throw ApiError.unAuthorized('Invalid request!');
 
-  // call srv -> 
+  // call srv ->
   const [er, keyStore] = await getKeyToken({ userId });
-  if (er || !keyStore) throw ApiError.notFound('Not found keyStore!')
-    // logger.info(keyStore?.publicKey)
+  if (er || !keyStore) throw ApiError.notFound('Not found keyStore!');
+  // logger.info(keyStore?.publicKey)
 
-  const accessToken = req.headers[HEADER.AUTHORIZATION]
-  if (!accessToken) throw ApiError.unAuthorized('Invalid request!!')
+  const accessToken = req.headers[HEADER.AUTHORIZATION];
+  if (!accessToken) throw ApiError.unAuthorized('Invalid request!!');
 
-  const [err, decodeUser] = await decodeToken( accessToken, keyStore?.publicKey)
-  if (err) throw err
+  const [err, decodeUser] = await decodeToken(accessToken, keyStore?.publicKey);
+  if (err) throw err;
 
-  if(userId !== decodeUser.userId) throw ApiError.unAuthorized('invalid user')
+  if (userId !== decodeUser.userId) throw ApiError.unAuthorized('invalid user');
 
   req.keyStore = keyStore;
 
   return next();
-
-})
+});
 
 module.exports = {
   createTokenPair,
