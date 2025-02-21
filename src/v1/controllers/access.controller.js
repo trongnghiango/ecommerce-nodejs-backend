@@ -54,12 +54,13 @@ class AccessController {
     });
   };
 
+  // eslint-disable-next-line class-methods-use-this
   signout = async (req, res, _next) => {
     return new OKResponse({
       message: 'success',
-      metadata: await AccessService.logout(req.keyStore)
-    }).send(res)
-  }
+      metadata: await AccessService.logout(req.keyStore),
+    }).send(res);
+  };
 }
 
 module.exports = new AccessController();

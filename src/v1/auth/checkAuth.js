@@ -1,4 +1,4 @@
-const { ApiError }= require('../core/api-error');
+const { ApiError } = require('../core/api-error');
 const { findApiKeyById } = require('../services/apikey.service');
 const { logger } = require('../utils/logger.util');
 

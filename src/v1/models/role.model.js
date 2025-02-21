@@ -1,20 +1,28 @@
-const { model, Schema } = require('mongoose')
+const { model, Schema } = require('mongoose');
 
-const DOCUMENT_NAME = 'Role'
-const COLLECTION_NAME = 'roles'
+const DOCUMENT_NAME = 'Role';
+const COLLECTION_NAME = 'roles';
 
 const grantList = [
-  { role: 'admin', resource: 'profile', action: 'update:any', attributes: '*'},
-  { role: 'admin', resource: 'profile', action: 'update:any', attributes: '*'},
+  { role: 'admin', resource: 'profile', action: 'update:any', attributes: '*' },
+  { role: 'admin', resource: 'profile', action: 'update:any', attributes: '*' },
 
-  { role: 'admin', resource: 'profile', action: 'update:any', attributes: '*'},
-  { role: 'admin', resource: 'profile', action: 'update:any', attributes: '*'},
-  { role: 'admin', resource: 'profile', action: 'update:any', attributes: '*'},
-]
+  { role: 'admin', resource: 'profile', action: 'update:any', attributes: '*' },
+  { role: 'admin', resource: 'profile', action: 'update:any', attributes: '*' },
+  { role: 'admin', resource: 'profile', action: 'update:any', attributes: '*' },
+];
 
 const roleSchema = new Schema(
   {
-    rol_name: { type: String, default: 'user', enum: ['user', 'shop', 'admin'] },
+    // rol_name: { type: String, default: 'user', enum: ['user', 'shop', 'admin'] },
+    rol_name: { type: String, required: true, unique: true },
+    /** // phép thêm vai trò tùy chỉnh với quy tắc đặt tên rõ ràng.
+      const validRoles = ['admin', 'user', 'shop', 'superAdmin', 'contentAdmin'];
+
+      function isValidRole(roleName) {
+        return validRoles.includes(roleName);
+      }
+    */
     rol_slug: { type: String, required: true },
     rol_status: { type: String, enum: ['active', 'block', 'pending'] },
     rol_description: { type: String, default: '' },
@@ -30,5 +38,5 @@ const roleSchema = new Schema(
     timestamps: true,
     collection: COLLECTION_NAME,
   }
-)
-module.exports = model(DOCUMENT_NAME, roleSchema)
+);
+module.exports = model(DOCUMENT_NAME, roleSchema);
