@@ -1,13 +1,11 @@
 const express = require('express');
 
-
 const helmet = require('helmet');
 const morgan = require('morgan');
 const compression = require('compression');
 const setupSwagger = require('./swagger');
 const { ApiError, NotFoundError } = require('./v1/core/api-error');
 const { errorConverter, errorHandler } = require('./v1/middlewares/error');
-
 
 const app = express();
 
@@ -32,23 +30,19 @@ app.use(
   })
 );
 
-
 // router VERSION 1
 app.use(require('./v1/routes/index.router'));
 
 // Error Handling Middleware called
 app.use((req, res, next) => {
   // throw ApiError.notFound();
-  throw new NotFoundError()
+  throw new NotFoundError();
 });
-
 
 // convert error to ApiError, if needed
 app.use(errorConverter);
 
-
 // handle error
 app.use(errorHandler);
-
 
 module.exports = app;
