@@ -1,4 +1,9 @@
-node_modules/
-temps/
+/node_modules/
+/temps/
+/logs/
 .env
 .env.local
+.pnp.*
+/.yarn/
+
+/.idea/

@@ -1,22 +1,55 @@
 @urlDev=http://localhost:3051
 
+@accessToken=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzVhODgzMWY2ZDEwOGZiMDRlNmI5NDkiLCJpYXQiOjE3MzUxMDQ4MzAsImV4cCI6MTczNTEwNTczMH0.XIIASOwxobZRnAJ1UMCNvJK9_AkUJmzm3x_moySfPy4VduDGkkIUi9TOPzsBGY7HmCCZFc1m48q7qRHMUMGChGudwhgXYLN7_D6qsTCo9xcKItuYOFATBWfCu8zIKlPPU4VeWb-UQi5GoFWn5Nx1wE-IfUMpsDcjFCJ6S5Oa48a4_zfjMR_NY3Nw9RSBgVVmGt87iDZvpQrswzhvLaipIpySehmwoL3iR4UPh_03FQdAgwFSrnzBfVW2pcTFzr00EQCHiV3wrTXaObvwwv8gww8EBGhvbVsnseJ8_-AiU6WvKLgiqNz1yzlBogo3F5XdjsHnapZW5NL3eefxkn_Uug
 ### checkStatus
 
 POST {{urlDev}}/v1/api/shop/signup
 Content-Type: application/json
-x-api-key: 92479229
+x-api-key: e42e73eba28523492ce0c53c327dc8ba76a81fb4813314a52ea0586bd51f11ab298ba6d257dd0914247817b23b2bb53fc0dde0ec2007a2d9ff2725f1db9f0114
 
 {
-  "email": "nghia@mail.com",
-  "name": "nghiango",
+  "email": "nghia111@mail.com",
+  "name": "nghiango111",
   "password": "123456"
 }
 
 ### Login
 POST {{urlDev}}/v1/api/shop/signin
 Content-Type: application/json
+x-api-key: e42e73eba28523492ce0c53c327dc8ba76a81fb4813314a52ea0586bd51f11ab298ba6d257dd0914247817b23b2bb53fc0dde0ec2007a2d9ff2725f1db9f0114
 
 {
   "email": "nghia@mail.com",
   "password": "123456"
+}
+
+### profile
+POST {{urlDev}}/v1/api/shop/logout
+Content-Type: application/json
+x-client-id: 675a8831f6d108fb04e6b949
+x-api-key: e42e73eba28523492ce0c53c327dc8ba76a81fb4813314a52ea0586bd51f11ab298ba6d257dd0914247817b23b2bb53fc0dde0ec2007a2d9ff2725f1db9f0114
+Authorization: {{accessToken}}
+
+
+### profile
+GET {{urlDev}}/v1/api/profile
+Content-Type: application/json
+x-client-id: 675a8831f6d108fb04e6b949
+x-api-key: e42e73eba28523492ce0c53c327dc8ba76a81fb4813314a52ea0586bd51f11ab298ba6d257dd0914247817b23b2bb53fc0dde0ec2007a2d9ff2725f1db9f0114
+Authorization: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzVhODgzMWY2ZDEwOGZiMDRlNmI5NDkiLCJpYXQiOjE3MzUwNTA4NDEsImV4cCI6MTczNTA1MTc0MX0.Fmcmhx7FE17shEYuM2OWZAoLzG3gBdU1MkWzU_cTXE_Slxejz1HILorL51nXzUPYrc44ingqgjeH9tOpCKCRqSaYjgE-3X-C0GYI27WLxBlUmPCl7qqKsMsab3vWhTMxjVOXlovJHUpzY2UFLeL7aqA7GXuRbg45lPIz88i14tJdSfx4kEQvDXn-HTrEuleySVycnf0WO0qCI4PPbTe4mAAVsFmGafPo_gcUrcAPfSSNVZ56HV7YribBsyJk6s5vLfan2DYXWIzNJoHHEDPkYF1LUKLLFOdyw4G1XB7VRomWkbdvoZp51IQMe60A9t8QgB2oYQH-3Du9WXKGmuoSxQ
+
+
+###
+GET http://localhost:8000/greet/ok con do
+
+
+###
+POST http://localhost:8000/api/heroes
+Content-Type: application/json
+
+{
+
+    "name": "Ciquan",
+    "secret_name": "nemay",
+    "age": 18
 }

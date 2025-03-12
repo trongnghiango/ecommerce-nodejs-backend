@@ -2,13 +2,15 @@
   "name": "websevice-mvc-express-nodejs",
   "version": "1.0.0",
   "description": "structure api mvc express nodejs",
+  "packageManager": "yarn@4.5.3",
   "main": "index.js",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
     "dev": "nodemon index.js",
-    "lint-cc": "eslint --cache"
+    "lint-cc": "eslint --cache",
+    "check-style": "prettier --check src"
   },
   "_moduleAliases": {
     "@": "src"
@@ -33,8 +35,11 @@
     "node-fetch": "^3.3.2",
     "nodemon": "^2.0.20",
     "redis": "^3.1.2",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
     "winston": "^3.7.2",
-    "winston-daily-rotate-file": "^5.0.0"
+    "winston-daily-rotate-file": "^5.0.0",
+    "xxx": "./libs/xxx"
   },
   "devDependencies": {
     "eslint": "8.57.1",
@@ -43,6 +48,6 @@
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-prettier": "^5.2.1",
-    "prettier": "^3.4.2"
+    "prettier": "^3.5.0"
   }
 }

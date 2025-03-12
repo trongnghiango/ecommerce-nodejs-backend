@@ -3,15 +3,15 @@ const bcrypt = require('bcrypt');
 const { genPairKey } = require('@/v1/utils/auth.util');
 const { createTokenPair } = require('@/v1/auth/authUtils');
 // const crypto = require('node:crypto')
-const ApiError = require('@/v1/core/api-error');
+const { ApiError } = require('@/v1/core/api-error');
 const shopModel = require('@/v1/models/shop.model');
 const { getConfig } = require('../configs/autoloadConfig');
 const KeyTokenService = require('./keytoken.service');
 const { logger } = require('../utils/logger.util');
 
 class AccessService {
-  static async logout() {
-    return 'ok';
+  static async logout(userId) {
+    return await KeyTokenService.removeKeyTokenByUserId(userId);
   }
 
   /**
@@ -96,15 +96,13 @@ class AccessService {
   static async signin({ email, password }) {
     try {
       // 1. validation
-      // 2.
-      logger.info(`AccessService::signin::${JSON.stringify({ email, password })}`);
+      // 2. Check if the user exists?
+      logger.info(`AccessService::signin::${JSON.stringify({ email })}`);
       const existedShop = await shopModel.findOne({ email }).lean().exec();
-
       if (!existedShop) return [new Error('Email not registered.')];
 
       // 3. verify password
       const matchedPassword = await bcrypt.compare(password, existedShop.password);
-
       if (!matchedPassword) return [ApiError.unAuthorized('Wrong password!!!')];
 
       // 4. gen key pair

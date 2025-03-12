@@ -1,7 +1,7 @@
 const { StatusCodes, ReasonPhrases } = require('http-status-codes');
 
 class ApiError extends Error {
-  constructor(statusCode, message, isOperational = true, stack = '') {
+  constructor( message, statusCode, isOperational = true, stack = '') {
     super(message);
     this.statusCode = statusCode;
     this.isOperational = isOperational;
@@ -20,7 +20,7 @@ class ApiError extends Error {
    * @returns
    */
   static unAuthorized(message, isOperational, stack) {
-    return new ApiError(StatusCodes.UNAUTHORIZED, message, isOperational, stack);
+    return new ApiError(message, StatusCodes.UNAUTHORIZED, isOperational, stack);
   }
 
   /**
@@ -31,7 +31,7 @@ class ApiError extends Error {
    * @returns
    */
   static badRequest(message, isOperational, stack) {
-    return new ApiError(StatusCodes.BAD_REQUEST, message, isOperational, stack);
+    return new ApiError( message, StatusCodes.BAD_REQUEST, isOperational, stack);
   }
 
   /**
@@ -43,8 +43,30 @@ class ApiError extends Error {
    */
   // eslint-disable-next-line default-param-last
   static notFound(message = ReasonPhrases.NOT_FOUND, isOperational, stack) {
-    return new ApiError(StatusCodes.NOT_FOUND, message, isOperational, stack);
+    return new ApiError(message, StatusCodes.NOT_FOUND, isOperational, stack);
   }
 }
 
-module.exports = ApiError;
+class NotFoundError extends ApiError {
+  constructor(message = ReasonPhrases.NOT_FOUND, statusCode = StatusCodes.NOT_FOUND ) {
+    super(message, statusCode)
+  }
+}
+
+class ForbiddenError extends ApiError {
+  constructor(message = ReasonPhrases.FORBIDDEN, statusCode = StatusCodes.FORBIDDEN ) {
+    super(message, statusCode)
+  }
+}
+
+class UnAuthorizedError extends ApiError {
+constructor(message = ReasonPhrases.FORBIDDEN, statusCode = StatusCodes.FORBIDDEN ) {
+    super(message, statusCode)
+  }  
+}
+
+module.exports = {
+  ApiError,
+  NotFoundError, 
+  ForbiddenError
+}
