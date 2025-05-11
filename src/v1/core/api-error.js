@@ -1,7 +1,7 @@
 const { StatusCodes, ReasonPhrases } = require('http-status-codes');
 
 class ApiError extends Error {
-  constructor( message, statusCode, isOperational = true, stack = '') {
+  constructor(message, statusCode, isOperational = true, stack = '') {
     super(message);
     this.statusCode = statusCode;
     this.isOperational = isOperational;
@@ -31,7 +31,7 @@ class ApiError extends Error {
    * @returns
    */
   static badRequest(message, isOperational, stack) {
-    return new ApiError( message, StatusCodes.BAD_REQUEST, isOperational, stack);
+    return new ApiError(message, StatusCodes.BAD_REQUEST, isOperational, stack);
   }
 
   /**
@@ -48,25 +48,26 @@ class ApiError extends Error {
 }
 
 class NotFoundError extends ApiError {
-  constructor(message = ReasonPhrases.NOT_FOUND, statusCode = StatusCodes.NOT_FOUND ) {
-    super(message, statusCode)
+  constructor(message = ReasonPhrases.NOT_FOUND, statusCode = StatusCodes.NOT_FOUND) {
+    super(message, statusCode);
   }
 }
 
 class ForbiddenError extends ApiError {
-  constructor(message = ReasonPhrases.FORBIDDEN, statusCode = StatusCodes.FORBIDDEN ) {
-    super(message, statusCode)
+  constructor(message = ReasonPhrases.FORBIDDEN, statusCode = StatusCodes.FORBIDDEN) {
+    super(message, statusCode);
   }
 }
 
 class UnAuthorizedError extends ApiError {
-constructor(message = ReasonPhrases.FORBIDDEN, statusCode = StatusCodes.FORBIDDEN ) {
-    super(message, statusCode)
-  }  
+  constructor(message = ReasonPhrases.FORBIDDEN, statusCode = StatusCodes.FORBIDDEN) {
+    super(message, statusCode);
+  }
 }
 
 module.exports = {
   ApiError,
-  NotFoundError, 
-  ForbiddenError
-}
+  NotFoundError,
+  ForbiddenError,
+  UnAuthorizedError,
+};
