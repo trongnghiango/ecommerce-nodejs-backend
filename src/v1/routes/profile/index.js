@@ -1,60 +1,81 @@
-
+const express = require('express');
 const profileController = require('@/v1/controllers/profile.controller');
 const { catchAsync } = require('@/v1/utils/helper.util');
-const express = require('express');
-const router = express.Router()
+const { authentication } = require('@/v1/auth/authUtils');
+const { authorizeAC } = require('@/v1/middlewares/authorizeAC.middleware'); // Use AccessControl middleware
+
+const router = express.Router();
 
 /**
  * @swagger
  * tags:
  *   name: Profile
- *   description: Operations related to access
+ *   description: User profile operations (requires authentication)
  */
 
-/**
- * @swagger
- * components:
- *   securitySchemes:
- *     apiKey:
- *       type: apiKey
- *       in: header
- *       name: x-api-key
- *   headers:
- *     x-client-id:
- *       description: Required client identifier
- *       type: string
- */
+// All routes in this router require prior authentication.
+router.use(catchAsync(authentication));
 
 /**
  * @swagger
  * /profile/viewAny:
  *   get:
  *     tags: [Profile]
- *     summary: Get a Profile
+ *     summary: View any profile (Admin access)
+ *     security:
+ *       - BearerAuth: []
  *     parameters:
- *       - name: x-client-id
+ *       - name: X-Client-Id  # Should be part of BearerAuth, but Swagger might require explicit mention
  *         in: header
  *         required: true
- *         description: Required client Id
- *         schema:
- *           type: string     
+ *         $ref: '#/components/headers/X-Client-Id'
  *     responses:
  *       200:
- *         description: A successful response
+ *         description: Successfully retrieved profile data (placeholder)
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/SuccessResponse'
+ *       401:
+ *         $ref: '#/components/responses/Unauthorized'
+ *       403:
+ *         $ref: '#/components/responses/Forbidden'
  */
-router.route("/viewAny").get(catchAsync(profileController.viewAny));
-
+router.get(
+  '/viewAny',
+  authorizeAC('read:any', 'profile'), // Permission: Can any admin role read any profile?
+  catchAsync(profileController.viewAny)
+);
 
 /**
  * @swagger
- * /profile/viewAny:
+ * /profile/viewOwner:
  *   get:
  *     tags: [Profile]
- *     summary: Get a Profile
+ *     summary: View own profile (Authenticated user/shop access)
+ *     security:
+ *       - BearerAuth: []
+ *     parameters:
+ *       - name: X-Client-Id
+ *         in: header
+ *         required: true
+ *         $ref: '#/components/headers/X-Client-Id'
  *     responses:
  *       200:
- *         description: A successful response
+ *         description: Successfully retrieved own profile data (placeholder)
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/SuccessResponse'
+ *       401:
+ *         $ref: '#/components/responses/Unauthorized'
+ *       403:
+ *         $ref: '#/components/responses/Forbidden'
  */
-router.route("viewOwn").get(catchAsync(profileController.viewOwner));
+router.get(
+  '/viewOwner',
+  authorizeAC('read:own', 'profile'), // Permission: Can the user's role read their own profile?
+  catchAsync(profileController.viewOwner)
+);
 
 module.exports = router;

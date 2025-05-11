@@ -2,7 +2,6 @@
   "name": "websevice-mvc-express-nodejs",
   "version": "1.0.0",
   "description": "structure api mvc express nodejs",
-  "packageManager": "yarn@4.5.3",
   "main": "index.js",
   "directories": {
     "doc": "docs"
@@ -33,7 +32,7 @@
     "mongoose": "^6.3.3",
     "morgan": "^1.10.0",
     "node-fetch": "^3.3.2",
-    "nodemon": "^2.0.20",
+    "nodemon": "^3.1.10",
     "redis": "^3.1.2",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1",

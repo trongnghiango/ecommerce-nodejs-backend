@@ -1,0 +1,48 @@
+[
+  {
+    "role": "anonymous",
+    "resource": "articles",
+    "action": "read:any",
+    "attributes": ["*", "!authorDetails"]
+  },
+  {
+    "role": "SHOP",
+    "resource": "profile",
+    "action": "read:own",
+    "attributes": ["*"]
+  },
+  {
+    "role": "SHOP",
+    "resource": "profile",
+    "action": "update:own",
+    "attributes": ["*"]
+  },
+  {
+    "role": "SHOP",
+    "resource": "products",
+    "action": "create:own",
+    "attributes": ["*"]
+  },
+  {
+    "role": "SHOP",
+    "resource": "products",
+    "action": "update:own",
+    "attributes": ["*"]
+  },
+  {
+    "role": "ADMIN",
+    "resource": "profile",
+    "action": "read:any",
+    "attributes": ["*"]
+  },
+  {
+    "role": "ADMIN",
+    "resource": "users",
+    "action": "manage:any",
+    "attributes": ["*"]
+  },
+  {
+    "role": "ADMIN",
+    "inherits": ["SHOP", "anonymous"]
+  }
+]
