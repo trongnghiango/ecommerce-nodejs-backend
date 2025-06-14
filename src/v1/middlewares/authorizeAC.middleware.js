@@ -1,4 +1,4 @@
-const { getAccessControlInstance } = require('../auth/accessControl');
+const { getAccessControlInstance } = require('../auth/accesscontrol');
 const { ApiError } = require('../core/api-error');
 const { logger } = require('../utils/logger.util');
 

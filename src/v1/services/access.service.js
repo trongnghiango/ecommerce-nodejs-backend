@@ -3,7 +3,7 @@ const { eq } = require('drizzle-orm');
 const { db, shopsTable } = require('../databases/drizzle'); // Removed keyStoresTable, handled by KeyTokenService
 const { genPairKey } = require('@/v1/utils/auth.util');
 const { createTokenPair, decodeToken, HEADER } = require('@/v1/auth/authUtils');
-const { ApiError } = require('@/v1/core/api-error');
+const { ApiError, ConflictError } = require('@/v1/core/api-error');
 const KeyTokenService = require('./keytoken.service');
 const { logger } = require('../utils/logger.util');
 
@@ -96,7 +96,7 @@ class AccessService {
       .limit(1);
 
     if (existingShop.length > 0) {
-      throw ApiError.conflict('Email already registered.');
+      throw new ConflictError('Email already registered.');
     }
 
     const passwordHash = await bcrypt.hash(password, 10);

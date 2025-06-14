@@ -1,0 +1,60 @@
+{
+  "compilerOptions": {
+    /* Basic Options */
+    "target": "ES2020", // Hoặc ESNext nếu môi trường Node.js của bạn hỗ trợ
+    "module": "commonjs", // Output module format cho Node.js
+    "lib": ["es2020", "dom"], // 'dom' có thể không cần thiết cho backend thuần túy
+    "allowJs": true, // Cho phép biên dịch file JavaScript (quan trọng!)
+    // "checkJs": false, // Nếu true, sẽ kiểm tra type trong file JS (thường dùng với JSDoc)
+    // "jsx": "preserve", // Nếu bạn có React/JSX (không áp dụng ở đây)
+    "declaration": true, // Tạo file .d.ts cho các module TS (quan trọng để JS có thể hiểu type)
+    "declarationMap": true, // Tạo source map cho file .d.ts
+    "sourceMap": true, // Tạo source map cho file JS đã biên dịch (debug TS)
+    "outDir": "./dist", // Thư mục output cho các file TS đã biên dịch
+    "rootDir": "./src", // Thư mục gốc chứa mã nguồn (cả JS và TS)
+
+    /* Strict Type-Checking Options */
+    "strict": true, // Bật tất cả các cờ kiểm tra type nghiêm ngặt cho file TS
+    // "noImplicitAny": true, // Yêu cầu khai báo type rõ ràng khi TS không thể suy luận
+    // "strictNullChecks": true, // Xử lý null và undefined một cách nghiêm ngặt
+    // "strictFunctionTypes": true,
+    // "strictBindCallApply": true,
+    // "strictPropertyInitialization": true,
+    // "noImplicitThis": true,
+    // "alwaysStrict": true, // Parse ở strict mode và emit "use strict"
+
+    /* Module Resolution Options */
+    "moduleResolution": "node", // Cách TS tìm module
+    "baseUrl": "./", // Thư mục gốc cho các non-relative module imports
+    "paths": { // Cho phép alias paths (ví dụ @/v1/*)
+      "@/v1/*": ["src/v1/*"],
+      // Nếu code TS biên dịch ra dist/src/v1, và JS vẫn ở src/v1
+      // thì khi JS import TS, nó sẽ import từ dist.
+      // Paths này giúp TS hiểu alias, nhưng JS sẽ cần cấu hình riêng (module-alias)
+      // hoặc dùng relative paths sau khi TS biên dịch.
+      // Để đơn giản, chúng ta sẽ cấu hình outDir và rootDir để cấu trúc output dễ quản lý hơn.
+    },
+    // "rootDirs": [], // List of root folders whose combined content represents the structure of the project at runtime.
+    // "typeRoots": [], // List of folders to include type definitions from.
+    // "types": [], // Type declaration files to be included in compilation.
+    "allowSyntheticDefaultImports": true, // Cho phép `import React from "react"`
+    "esModuleInterop": true, // Quan trọng cho tương thích giữa CommonJS và ES modules
+    // "preserveSymlinks": true, // Do not resolve the real path of symlinks.
+
+    /* Advanced Options */
+    "skipLibCheck": true, // Bỏ qua kiểm tra type của tất cả các file khai báo (.d.ts)
+    "forceConsistentCasingInFileNames": true, // Đảm bảo tên file nhất quán về chữ hoa/thường
+    "resolveJsonModule": true, // Cho phép import file .json
+  },
+  "include": [
+    "src/v1/databases/schema/**/*.ts", // Chỉ biên dịch file .ts trong thư mục schema
+    "src/v1/databases/drizzle.ts"    // Và file drizzle.ts nếu bạn chuyển nó sang TS
+    // Bạn có thể thêm các file/folder TS khác ở đây nếu muốn
+  ],
+  "exclude": [
+    "node_modules",
+    "dist", // Không include thư mục output vào quá trình compile
+    "**/*.spec.ts",
+    "**/*.test.ts"
+  ]
+}

@@ -26,6 +26,7 @@ let ac;
  * @returns {GrantItem[]} The list of grant items.
  * @throws {Error} If the grants file cannot be read or parsed.
  */
+// eslint-disable-next-line no-underscore-dangle
 function _loadGrantsFromJson() {
   const grantsFilePath = path.resolve(__dirname, '../configs/accesscontrol/grants.json');
   if (!fs.existsSync(grantsFilePath)) {
@@ -101,6 +102,7 @@ function initializeAccessControl(useDatabase = false) {
     return ac;
   }
   // If forced to use DB or not initialized
+  // eslint-disable-next-line no-underscore-dangle
   if (ac && useDatabase && ac._source === 'database') {
     // If already initialized with DB
     return ac;
@@ -108,7 +110,7 @@ function initializeAccessControl(useDatabase = false) {
 
   try {
     let grantList;
-    let source = 'json';
+    const source = 'json';
     if (useDatabase) {
       // grantList = await _loadGrantsFromDatabase(); // This would make initializeAccessControl async
       // For sync version with DB, _loadGrantsFromDatabase should be called elsewhere and pass grants
@@ -126,6 +128,7 @@ function initializeAccessControl(useDatabase = false) {
     }
 
     ac = new AccessControl(grantList);
+    // eslint-disable-next-line no-underscore-dangle
     ac._source = source; // Store the source for re-initialization logic
     logger.info(`AccessControl initialized successfully from ${source}.`, {
       label: 'ACCESS_CONTROL',

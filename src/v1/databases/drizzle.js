@@ -6,14 +6,14 @@ require('dotenv').config(); // Đảm bảo biến môi trường được tải
 const { logger } = require('../utils/logger.util');
 
 // Import tất cả các schema của bạn
-const shopsSchema = require('./schema/shops');
-const usersSchema = require('./schema/users');
-const apiKeysSchema = require('./schema/apiKeys');
-const keyStoresSchema = require('./schema/keyStores');
-const rolesSchema = require('./schema/roles');
-const resourcesSchema = require('./schema/resources');
-const accountsSchema = require('./schema/accounts');
-const adminsSchema = require('./schema/admins');
+const shopsSchema = require('./schema/shop');
+const usersSchema = require('./schema/user');
+const apiKeysSchema = require('./schema/apiKey');
+const keyStoresSchema = require('./schema/keyStore');
+const rolesSchema = require('./schema/role');
+const resourcesSchema = require('./schema/resource');
+const accountsSchema = require('./schema/account');
+const adminsSchema = require('./schema/admin');
 // ... import các schema khác
 
 if (!process.env.DATABASE_URL) {
@@ -22,7 +22,8 @@ if (!process.env.DATABASE_URL) {
 }
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
+  url: process.env.DATABASE_URL,
+  // connectionString: process.env.DATABASE_URL,
   // ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false, // Cấu hình SSL nếu cần cho production
 });
 
@@ -42,13 +43,13 @@ const db = drizzle(pool, {
   // Tuy nhiên, export các table object từ đây có thể tiện lợi.
   schema: {
     ...shopsSchema,
-    ...usersSchema,
+//    ...usersSchema,
     ...apiKeysSchema,
-    ...keyStoresSchema,
-    ...rolesSchema,
-    ...resourcesSchema,
-    ...accountsSchema,
-    ...adminsSchema,
+ //   ...keyStoresSchema,
+ //   ...rolesSchema,
+ //   ...resourcesSchema,
+ //   ...accountsSchema,
+ //   ...adminsSchema,
   },
   logger:
     process.env.NODE_ENV === 'development' // Kích hoạt Drizzle logger ở dev

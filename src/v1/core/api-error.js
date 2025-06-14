@@ -65,9 +65,16 @@ class UnAuthorizedError extends ApiError {
   }
 }
 
+class ConflictError extends ApiError {
+  constructor(message = ReasonPhrases.CONFLICT, statusCode = StatusCodes.CONFLICT) {
+    super(message, statusCode);
+  }
+}
+
 module.exports = {
   ApiError,
   NotFoundError,
   ForbiddenError,
   UnAuthorizedError,
+  ConflictError
 };

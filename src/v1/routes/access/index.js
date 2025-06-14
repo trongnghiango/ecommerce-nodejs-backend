@@ -2,7 +2,7 @@ const express = require('express');
 const accessController = require('@/v1/controllers/access.controller');
 const { apiKey, checkPermission } = require('@/v1/auth/checkAuth'); // Assuming these are still needed
 const { authentication } = require('@/v1/auth/authUtils');
-const { catchAsync } = require('../../utils/helper.util');
+const { catchAsync } = require('@/v1/utils/helper.util');
 
 const router = express.Router();
 

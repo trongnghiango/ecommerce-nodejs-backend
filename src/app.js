@@ -8,7 +8,7 @@ const setupSwagger = require('./swagger');
 const { NotFoundError } = require('./v1/core/api-error'); // Removed unused ApiError
 const { errorConverter, errorHandler } = require('./v1/middlewares/error');
 const { logger } = require('./v1/utils/logger.util'); // Assuming logger is correctly set up
-const { initializeAccessControl } = require('./v1/auth/accessControl'); // Import AccessControl initializer
+const { initializeAccessControl } = require('./v1/auth/accesscontrol'); // Import AccessControl initializer
 
 const app = express();
 

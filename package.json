@@ -7,7 +7,13 @@
     "doc": "docs"
   },
   "scripts": {
-    "dev": "nodemon index.js",
+    "build:ts": "tsc",
+    "start": "node src/app.js",
+    "dev": "nodemon --watch src --ext js,ts --exec \"npm run build:ts && node src/app.js\"",
+    "drizzle:generate": "npm run build:ts && drizzle-kit generate:pg",
+    "drizzle:migrate": "npm run build:ts && drizzle-kit migrate:pg",
+    "drizzle:studio": "drizzle-kit studio",
+    "dev:js": "nodemon index.js",
     "lint-cc": "eslint --cache",
     "check-style": "prettier --check src"
   },
@@ -21,9 +27,11 @@
   "author": "nghiango <nghiangots@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "accesscontrol": "^2.2.1",
     "bcrypt": "^5.1.1",
     "compression": "^1.7.4",
     "dotenv": "^16.0.1",
+    "drizzle-orm": "^0.43.1",
     "express": "^4.18.1",
     "helmet": "^5.1.0",
     "http-status-codes": "^2.3.0",
